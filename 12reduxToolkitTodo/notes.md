@@ -26,7 +26,7 @@ In summary, Redux Toolkit is a valuable tool for developers who want to use Redu
 
 # Step 2: Create features or Slice
 - in documentation, features are called Slice
-- create method is used to create slice
+- createSlice method is used to create slice
 - we need 3 things to create slice :
 1. name
 2. intialState (just like useState for default values)
