@@ -6,19 +6,19 @@ function App() {
   let [counter, setCounter] = useState(15) //useState(15) same as : let counter = 15
 
   const addValue = () =>{
-    if(counter>20){
+    if(counter>=20){
       alert("Limit exceeded")
     }
     else{
-      setCounter( counter++ )
+      setCounter( prevCounter => prevCounter + 1 )
     }
   }
   const removeValue = () => {
-    if(counter<0){
+    if(counter<=0){
       alert("Limit reached")
     }
     else{
-      setCounter( counter-- )
+      setCounter(prevCounter => prevCounter - 1 )
     }
     
   }

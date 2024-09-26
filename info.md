@@ -1,6 +1,12 @@
 1. react-dom : used for web dev
 2. react-native : used for app dev
 
+--> Metadata : data that provides info about other data 
+               In other words, metadata is a set of attributes or descriptive information about a particular piece of data, such as a file, a document, or a project.
+
+--> The package.json file also lists the dependencies required by your project. 
+--> Dependencies are libraries or modules that your project relies on to function properly.               
+
 in package.json, dev-dependecies : used only for development purposes
                                    they are not sent to the client
 
@@ -22,11 +28,11 @@ best practices :
 ### Hooks : 
 --> hooks are special functions that allow you to use state and other React features without writing a class.
 
-use of **hooks** : UI updation/ data updation --> react controls UI
+use of **hooks** : UI updation/data updation --> react controls UI
 
 1. useState : This hook lets you add state to functional components.
 --> Syntax: const [state, setState] = useState(initialState);
---> useState gives 2 values in terms of array : 1. literal 2.function
+--> useState gives 2 values in terms of array : 1.literal 2.function
 
 2. useEffect: This hook lets you perform side effects in function components. 
 --> It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes.
@@ -104,3 +110,65 @@ We've established that a primary goal of Fiber is to enable React to take advant
 ### useCallback
 --> useCallback is a react Hook that lets you cache a function definition between re-renders.
 **syntax** : const cachedFn = useCallback(fn, dependecies)
+
+# JSX
+1. JSX (JavaScript XML) is a syntax extension for JavaScript, commonly used with React(react is a popular JavaScript library for building user interfaces).
+2. JSX allows you to write HTML elements in JavaScript and place them in the DOM without needing to use functions like createElement() or appendChild(). 
+3. JSX is a syntax extension of JavaScript. It’s used to create DOM elements which are then rendered in the React DOM.
+4. A JavaScript file containing JSX will have to be compiled before it reaches a web browser.
+
+5. A JSX expression that spans multiple lines must be wrapped in parentheses: ( and ).
+e.g.: const myList = (
+  <ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+  </ul>
+);
+
+6. JSX does not support if/else syntax in embedded JavaScript. There are three ways to express conditionals for use with JSX elements:
+(i) a ternary within curly braces in JSX
+(ii) an if statement outside a JSX element, or
+(iii) the && operator.
+
+7. Any text between JSX tags will be read as text content, not as JavaScript. In order for the text to be read as JavaScript, the code must be embedded between curly braces { }.
+
+8. **JSX element event listeners** : An event listener attribute’s value should be a function. Event listener functions can be declared inline or as variables and they can optionally take one argument representing the event.
+
+9. **JSX .map() method** : The .map() method is used to transform an array into a new array.
+--> eg :
+const items = [
+  { id: 1, name: 'Item 1' },
+  { id: 2, name: 'Item 2' },
+  { id: 3, name: 'Item 3' }
+];
+
+const listItems = items.map((item, index) => (
+  <li key={index}>
+    {item.name}
+  </li>
+));
+
+--> Breakdown:
+(i) array.map(): This applies the map() method to the given array.
+(ii) (item, index): The callback function takes two arguments:
+(iii) item: The current element being processed.
+(iv) index: The index of the current element in the array.
+(v) return: The callback function returns a new JSX element for each item in the array.
+(vi) <JSXElement>: This is the JSX element you want to create for each item.
+(vii) key={index}: The key attribute is crucial for React to efficiently update the DOM. It should be a unique identifier for each item. Using the (viii) index is often a good choice, but consider other unique properties if available.
+(ix) {...item}: This spreads the properties of the current item directly onto the JSX element.
+
+--> **common scenarios where you might use .map():**
+
+(i) *Rendering Lists:* To create lists of elements (like <ul> or <ol>) based on an array of data.
+- For example, rendering a list of products, users, or comments.
+(ii) Generating Dynamic Components:To dynamically create different types of components based on conditions or data.
+- For instance, rendering different components for different types of items in a list.
+(iii) Creating Custom Components: To build reusable components that accept an array of data as a prop and render corresponding elements.
+(iv) Data Visualization: To create charts, graphs, or other visualizations based on data.
+
+--> **Key Points:**
+(i) Always use a unique key prop: When using .map(), ensure that each element has a unique key attribute to help React efficiently update the DOM. This is essential for performance and prevents unnecessary re-renders.
+(ii) Consider performance: For large datasets, be mindful of performance implications. If you're dealing with a significant number of elements, you might explore techniques like virtualization or memoization to optimize rendering.
+(iii) Use .map() judiciously: While .map() is a powerful tool, use it selectively. If you only need to render a single element or a small number of elements, it might be more efficient to use direct JSX expressions.

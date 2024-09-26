@@ -4,6 +4,7 @@
 
 2. Redux Toolkit is a library that simplifies the development of Redux applications. 
 Here are some of its key usages:
+
 ## Simplified State Management:
 (i) Immer: Redux Toolkit uses Immer.js to create immutable updates to your state, making it easier to reason about changes and prevent unintended side effects.
 (ii) **createSlice:** This function allows you to create Redux slices, which are self-contained pieces of state that can be easily managed and combined.
@@ -29,7 +30,7 @@ In summary, Redux Toolkit is a valuable tool for developers who want to use Redu
 - createSlice method is used to create slice
 - we need 3 things to create slice :
 1. name
-2. intialState (just like useState for default values)
+2. initialState (just like useState for default values)
 3. list of reducers
 
 - reducers is a object containing multiple key-function pairs.
@@ -38,7 +39,7 @@ In summary, Redux Toolkit is a valuable tool for developers who want to use Redu
 2. action - contains action.payload etc
 
 - in context api, the state is not preserved. so for adding or pushing values, we first take out all the array from objects, spread them then add the value.
-- but in redux-toolkit, the state is preserved so we directly used state.todos.push(todo) i.e. state.propertyName_in_intialState.push(name_in_createSlice)
+- but in redux-toolkit, the state is preserved so we directly used state.todos.push(todo) i.e. state.propertyName_in_intialState.push(new_todo_object_that_you_want_to_add_to_the_todos_array)
 
 # Step 3: Export reducers
 - export individual reducers/actions - bec we don't know which component will use which reducer

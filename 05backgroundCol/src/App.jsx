@@ -35,6 +35,6 @@ export default App;
 1. Since there are already double curly braces in "style={{ backgroundColor: color }}",
 the variable name "color" is written directly inside the second pair of braces.
 
-2. onClick demands a function in return. but setColor() func can give either a value or func anything.
+2. onClick demands a function in return. but setColor() func may give either a value or func anything.
 So, we used a callback func to make sure a func is returned
 */
