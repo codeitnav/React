@@ -17,7 +17,7 @@ function Card({username, btnText="visit me"}){
       debitis?
     </p>
     <button className="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-white">
-    {btnText } 
+    {btnText} 
     </button>
   </div>
 </div>
@@ -32,3 +32,35 @@ Card.propTypes = {
 export default Card
 
 // btnText="visit me" --> default value is "visit me"
+
+// props make the react components reusable
+// they help in passing the data from one component to another
+
+// imagine we had a component in the form of a product consisting of the name of the product, its description, and price. All we have to do is write the component once and reuse it several times by altering the data that we pass through the props, which renders it to the desired output.
+
+
+// METHOD 2 : DRAWBACK - cannot give default text like {props.btnText = "visit me"}
+/*
+function Card(props){
+    return(
+        <div className="relative h-[400px] w-[300px] rounded-md">
+  <img
+    src="https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJ8ZW58MHx8MHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60"
+    alt="AirMax Pro"
+    className="z-0 h-full w-full rounded-md object-cover"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+  <div className="absolute bottom-4 left-4 text-left">
+    <h1 className="text-lg font-semibold text-white">{props.username}</h1>
+    <p className="mt-2 text-sm text-gray-300">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
+      debitis?
+    </p>
+    <button className="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-white">
+    {props.btnText } 
+    </button>
+  </div>
+</div>
+    )
+}
+*/

@@ -1,14 +1,12 @@
 import React, {useState} from 'react'
 import authService from '../appwrite/auth'
-import { Link, useNavigate } from 'react-router-dom'
+import {Link ,useNavigate} from 'react-router-dom'
 import {login} from '../store/authSlice'
-import {Button, Logo, Input} from './index'
-import { useDispatch } from 'react-redux'
+import {Button, Input, Logo} from './index.js'
+import {useDispatch} from 'react-redux'
 import {useForm} from 'react-hook-form'
 
-
 function Signup() {
-
     const navigate = useNavigate()
     const [error, setError] = useState("")
     const dispatch = useDispatch()
@@ -18,12 +16,9 @@ function Signup() {
         setError("")
         try {
             const userData = await authService.createAccount(data)
-
-            if(userData){
-                const userData = await authService.getCurrentUSer()
-                if(userData){
-                    dispatch(login(userData))
-                }
+            if (userData) {
+                const userData = await authService.getCurrentUser()
+                if(userData) dispatch(login(userData));
                 navigate("/")
             }
         } catch (error) {
@@ -55,12 +50,11 @@ function Signup() {
                     <div className='space-y-5'>
                         <Input
                         label="Full Name: "
-                        placeholder='Enter your full name'
+                        placeholder="Enter your full name"
                         {...register("name", {
                             required: true,
                         })}
-                         />
-
+                        />
                         <Input
                         label="Email: "
                         placeholder="Enter your email"
@@ -73,7 +67,6 @@ function Signup() {
                             }
                         })}
                         />
-
                         <Input
                         label="Password: "
                         type="password"
@@ -86,9 +79,9 @@ function Signup() {
                         </Button>
                     </div>
                 </form>
-                </div>
-        </div>
+            </div>
 
+    </div>
   )
 }
 
